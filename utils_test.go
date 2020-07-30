@@ -52,7 +52,7 @@ type testStruct struct {
 		"stringColumn":     {"nullable": "NO", "value": "varchar"},
 		"nullStringColumn": {"nullable": "YES", "value": "varchar"},
 	}
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -90,7 +90,7 @@ type testStruct struct {
 		"varbinaryColumn":      {"nullable": "NO", "value": "varbinary"},
 		"nullVarbinaryColumn":  {"nullable": "YES", "value": "varbinary"},
 	}
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -125,7 +125,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -147,7 +147,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err = Generate(columnMap, "test_table", "testStruct", "test", false, false, true)
+	bytes, err = Generate(columnMap, "test_table", "testStruct", "test", false, false, true, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -179,7 +179,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -199,7 +199,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err = Generate(columnMap, "test_table", "testStruct", "test", false, false, true)
+	bytes, err = Generate(columnMap, "test_table", "testStruct", "test", false, false, true, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -238,7 +238,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -262,7 +262,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err = Generate(columnMap, "test_table", "testStruct", "test", false, false, true)
+	bytes, err = Generate(columnMap, "test_table", "testStruct", "test", false, false, true, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -285,7 +285,7 @@ type testStruct struct {
 }
 `
 
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", true, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", true, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -312,7 +312,7 @@ func (t *testStruct) TableName() string {
 		"stringColumn":     {"nullable": "NO", "value": "varchar"},
 		"nullStringColumn": {"nullable": "YES", "value": "varchar"},
 	}
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, true, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, true, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -332,7 +332,7 @@ type testStruct struct {
 	columnMap := map[string]map[string]string{
 		"1stringColumn": {"nullable": "NO", "value": "varchar"},
 	}
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -352,7 +352,7 @@ type testStruct struct {
 	columnMap := map[string]map[string]string{
 		"string_Column": {"nullable": "NO", "value": "varchar"},
 	}
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -372,7 +372,7 @@ type testStruct struct {
 	columnMap := map[string]map[string]string{
 		"API": {"nullable": "NO", "value": "varchar"},
 	}
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, false, nil)
 
 	Convey("Should be able to generate map from string column", t, func() {
 		So(err, ShouldBeNil)
@@ -414,10 +414,16 @@ type testStruct struct {
 		"TimeStamp": {"nullable": "YES", "value": "timestamp"},
 	}
 
-	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, true)
+	bytes, err := Generate(columnMap, "test_table", "testStruct", "test", false, false, true, nil)
 
 	Convey("Should be able to generate map for guregu types", t, func() {
 		So(err, ShouldBeNil)
 		So(string(bytes), ShouldEqual, expectedStruct)
 	})
+}
+
+func TestCamelString(t *testing.T) {
+	t.Log(SmallCamelString("sdfs_sf_sgsf"))
+	t.Log(BigCamelString("sdfs_sf_sgsf"))
+	t.Log(SnakeString("HdsNbdDhasdDD"))
 }
